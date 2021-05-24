@@ -345,6 +345,9 @@
                             https://github.com/kxxt/WSLDiskShrinker
                         </Hyperlink>
                     </TextBlock>
+                    <TextBlock Foreground="White">
+                        Help wanted: We need help to collect the vhdx file locations of different WSL distros. We would appreciate it if you could submit the information to our github issues.
+                    </TextBlock>
                 </StackPanel>
             </materialDesign:Card>
         </Grid>
