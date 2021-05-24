@@ -1,0 +1,20 @@
+[
+  {
+    "identifier": "Ubuntu",
+    "icon": 5677,
+    "keywords": [ "ubuntu" ],
+    "paths": null
+  },
+  {
+    "identifier": "docker-desktop-data",
+    "icon": 2065,
+    "keywords": null,
+    "paths": [ "C:\\Users\\{User}\\AppData\\Local\\Docker\\wsl\\distro\\ext4.vhdx" ]
+  },
+  {
+    "identifier": "docker-desktop",
+    "icon": 2065,
+    "keywords": null,
+    "paths": [ "C:\\Users\\{User}\\AppData\\Local\\Docker\\wsl\\data\\ext4.vhdx" ]
+  }
+]
