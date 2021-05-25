@@ -1,8 +1,68 @@
 [
   {
+    "identifier": "Alpine",
+    "icon": 3521,
+    "keywords": [ "alpinewsl" ],
+    "paths": null
+  },
+  {
+    "identifier": "SUSE-Linux-Enterprise-Server-15-SP2",
+    "icon": 3521,
+    "keywords": [ "suselinuxenterpriseserver15sp2" ],
+    "paths": null
+  },
+  {
+    "identifier": "SUSE-Linux-Enterprise-Server-12-SP5",
+    "icon": 3521,
+    "keywords": [ "suselinuxenterpriseserver12sp5" ],
+    "paths": null
+  },
+  {
+    "identifier": "openSUSE-Leap-15-1",
+    "icon": 3521,
+    "keywords": [ "opensuse-leap-15-1" ],
+    "paths": null
+  },
+  {
+    "identifier": "openSUSE-Leap-15.2",
+    "icon": 3521,
+    "keywords": [ "opensuseleap15.2" ],
+    "paths": null
+  },
+  {
+    "identifier": "SLES-15-SP1",
+    "icon": 3521,
+    "keywords": [ "suselinuxenterpriseserver15servicepack1" ],
+    "paths": null
+  },
+  {
+    "identifier": "Debian",
+    "icon": 1954,
+    "keywords": [ "debiangnulinux" ],
+    "paths": null
+  },
+  {
+    "identifier": "kali-linux",
+    "icon": 3521,
+    "keywords": [ "kalilinux" ],
+    "paths": null
+  },
+  {
+    "identifier": "Ubuntu-18.04",
+    "icon": 5677,
+    "keywords": [ "ubuntu18.04onwindows" ],
+    "paths": null
+  },
+  {
+    "identifier": "Ubuntu-20.04",
+    "icon": 5677,
+    "keywords": [ "ubuntu20.04onwindows" ],
+    "paths": null
+  },
+  {
     "identifier": "Ubuntu",
     "icon": 5677,
-    "keywords": [ "ubuntu" ],
+    "keywords": [ "ubuntuonwindows" ],
     "paths": null
   },
   {
