@@ -135,7 +135,7 @@ namespace WSLDiskShrinker
 			DisableButton(btn);
 			IsScanning = true;
 			Distros.Clear();
-			await Task.Delay(300);
+			await Task.Delay(200);
 			var distros = Scanner.Scan();
 			foreach (var distro in distros) Distros.Add(distro);
 			IsScanning = false;
