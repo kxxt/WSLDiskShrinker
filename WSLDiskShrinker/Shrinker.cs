@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using WSLDiskShrinker.Common;
 
 namespace WSLDiskShrinker
@@ -24,7 +23,11 @@ namespace WSLDiskShrinker
 			var script_path = Path.GetTempFileName();
 			var tmp_file_info = new FileInfo(script_path);
 			tmp_file_info.Attributes = FileAttributes.Temporary;
+#if NET5_0_OR_GREATER
 			await File.WriteAllTextAsync(script_path, GetDiskpartScript(file));
+#else
+			await Task.Run(()=>File.WriteAllText(script_path, GetDiskpartScript(file)));
+#endif
 			return tmp_file_info;
 		}
 		public static async Task ShrinkUsingDiskpart(FileInfo scriptFile)
@@ -41,7 +44,12 @@ namespace WSLDiskShrinker
 			};
 			var proc = new Process { StartInfo = pinfo };
 			proc.Start();
+#if NET5_0_OR_GREATER
 			await proc.WaitForExitAsync();
+#else
+			await proc.CustomWaitForExitAsync();
+#endif
+
 			if (proc.ExitCode != 0) throw new CommandFailedException(proc);
 			//catch (IOException)
 			//{

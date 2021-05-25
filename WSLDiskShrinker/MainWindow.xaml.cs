@@ -218,7 +218,11 @@ namespace WSLDiskShrinker
 				{
 					Status = "Terminating the distro...";
 					var terpr = Process.Start("wsl", $"-t {distro.Name}");
+#if NET5_0_OR_GREATER
 					await terpr.WaitForExitAsync();
+#else
+					await terpr.CustomWaitForExitAsync();
+#endif
 
 					if (terpr.ExitCode != 0)
 					{
