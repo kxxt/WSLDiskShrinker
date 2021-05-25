@@ -147,9 +147,10 @@ namespace WSLDiskShrinker
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 
-		private void ShrinkAllButton_OnClick(object sender, RoutedEventArgs e)
+		private async void ShrinkAllButton_OnClick(object sender, RoutedEventArgs e)
 		{
-			File.WriteAllText("hello.json", JsonConvert.SerializeObject(Distros));
+			foreach (var distro in Distros) DistrosToShrink.Add(distro);
+			await dialogHost.ShowDialog(dialogHost.DialogContent);
 		}
 
 		private void OpenFolderButton_OnClick(object sender, RoutedEventArgs e)
