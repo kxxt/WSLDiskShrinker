@@ -131,12 +131,15 @@ namespace WSLDiskShrinker
 
 		private async void RefreshButton_OnClick(object sender, RoutedEventArgs e)
 		{
+			var btn = (sender as Button);
+			DisableButton(btn);
 			IsScanning = true;
 			Distros.Clear();
 			await Task.Delay(300);
 			var distros = Scanner.Scan();
 			foreach (var distro in distros) Distros.Add(distro);
 			IsScanning = false;
+			EnableButton(btn);
 		}
 
 		public event PropertyChangedEventHandler? PropertyChanged;
@@ -149,8 +152,11 @@ namespace WSLDiskShrinker
 
 		private async void ShrinkAllButton_OnClick(object sender, RoutedEventArgs e)
 		{
+			var btn = (sender as Button);
+			DisableButton(btn);
 			foreach (var distro in Distros) DistrosToShrink.Add(distro);
 			await dialogHost.ShowDialog(dialogHost.DialogContent);
+			EnableButton(btn);
 		}
 
 		private void OpenFolderButton_OnClick(object sender, RoutedEventArgs e)
@@ -173,17 +179,32 @@ namespace WSLDiskShrinker
 
 		}
 
+		private static void EnableButton(Button btn)
+		{
+			if (btn != null) btn.IsEnabled = true;
+		}
+
+		private static void DisableButton(Button btn)
+		{
+			if (btn != null) btn.IsEnabled = false;
+		}
 		private async void ShrinkButton_OnClick(object sender, RoutedEventArgs e)
 		{
+			var btn = (sender as Button);
+			DisableButton(btn);
 			DistrosToShrink.Add((WSLDistro)(((Button)sender).DataContext));
 			await dialogHost.ShowDialog(dialogHost.DialogContent);
+			EnableButton(btn);
 		}
 
 		private async void ProceedButton_OnClick(object sender, RoutedEventArgs e)
 		{
+			var btn = (sender as Button);
+			DisableButton(btn);
 			IsProcessing = true;
 			await Shrink();
 			IsProcessing = false;
+			EnableButton(btn);
 		}
 
 		private async Task Shrink()
@@ -217,7 +238,7 @@ namespace WSLDiskShrinker
 				{
 					script = await Shrinker.GenerateDiskpartScript(distro.Path);
 				}
-				catch(Exception e)
+				catch (Exception e)
 				{
 					Status = "Error while writing diskpart script!";
 					MessageBox.Show(
@@ -249,11 +270,11 @@ namespace WSLDiskShrinker
 				}
 
 				var newSize = new FileInfo(distro.Path).Length;
-				Status = $"Success! Saved {FileSizeConverter.Convert(newSize-distro.Size)}.";
+				Status = $"Success! Saved {FileSizeConverter.Convert(newSize - distro.Size)}.";
 				distro.Size = newSize;
 				await Task.Delay(1500);
 			}
-			
+
 			dialogHost.IsOpen = false;
 			await Task.Delay(500);
 			DistrosToShrink.Clear();
@@ -261,21 +282,26 @@ namespace WSLDiskShrinker
 
 		private async void ShrinkCustomButton_OnClick(object sender, RoutedEventArgs e)
 		{
+			var btn = (sender as Button);
+			DisableButton(btn);
 			OpenFileDialog dlg = new()
 			{
 				CheckFileExists = true,
 				CheckPathExists = true,
 				Filter = "Virtual Disk Files (*.vhdx)|*.vhdx"
 			};
-			if (!dlg.ShowDialog().Value) return;
-			DistrosToShrink.Add(new WSLDistro
+			if (dlg.ShowDialog().Value)
 			{
-				Name = "Custom VHDX",
-				Icon = PackIconKind.File,
-				Path = dlg.FileName,
-				Size = new FileInfo(dlg.FileName).Length
-			});
-			await dialogHost.ShowDialog(dialogHost.DialogContent);
+				DistrosToShrink.Add(new WSLDistro
+				{
+					Name = "Custom VHDX",
+					Icon = PackIconKind.File,
+					Path = dlg.FileName,
+					Size = new FileInfo(dlg.FileName).Length
+				});
+				await dialogHost.ShowDialog(dialogHost.DialogContent);
+			}
+			EnableButton(btn);
 		}
 
 		private void DialogHost_OnDialogClosing(object sender, DialogClosingEventArgs eventargs)
