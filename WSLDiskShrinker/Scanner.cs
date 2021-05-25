@@ -62,7 +62,7 @@ namespace WSLDiskShrinker
 				if (!string.IsNullOrWhiteSpace(line))
 				{
 					var splits = line.Split();
-					result.Add(splits[0]=="*"?splits[1]:splits[2]);
+					result.Add(splits[0] == "*" ? splits[1] : splits[2]);
 				}
 			}
 			proc.WaitForExit();
@@ -99,7 +99,7 @@ namespace WSLDiskShrinker
 			foreach (var distro in distros)
 			{
 				foreach (var info in distroInfos)
-					if (distro.Contains(info.Identifier))
+					if (distro == info.Identifier)
 					{
 						var r = new List<string>();
 						if (info.Keywords != null) r.AddRange(
