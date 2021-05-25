@@ -6,6 +6,12 @@ This is the right tool you are searching for!
 
 This small tool can help you reduce the disk usage of WSL distros.
 
+## Install
+
+This application requires .net 5.0 or .net framework 4.7.2
+
+Download the latest version from `Release` page.
+
 ## Usage
 
 Open the application, you can see all your wsl distros.
