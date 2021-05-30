@@ -157,7 +157,11 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <materialDesign:Card Grid.ColumnSpan="2">
-                <TextBlock FontSize="14">Welcome to WSL Disk Shrinker. This is a tool to help you reduce the size of WSL vhdx disk images.</TextBlock>
+                <TextBlock FontSize="14">
+                    Welcome to WSL Disk Shrinker. This is a tool to help you reduce the size of WSL vhdx disk images.
+                    <LineBreak/>
+                    Special thanks to icons 8, who provided the flat design style linux icon in the app's icon.
+                </TextBlock>
             </materialDesign:Card>
             <materialDesign:Card Grid.Row="1" Grid.RowSpan="2">
                 <Grid>
