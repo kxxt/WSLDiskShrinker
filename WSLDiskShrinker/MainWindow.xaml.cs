@@ -274,7 +274,7 @@ namespace WSLDiskShrinker
 				}
 
 				var newSize = new FileInfo(distro.Path).Length;
-				Status = $"Success! Saved {FileSizeConverter.Convert(newSize - distro.Size)}.";
+				Status = $"Success! Saved {FileSizeConverter.Convert(distro.Size-newSize)}.";
 				distro.Size = newSize;
 				await Task.Delay(1500);
 			}
