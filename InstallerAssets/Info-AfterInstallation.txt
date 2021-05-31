@@ -1,0 +1,6 @@
+Thanks for installing WSL Disk Shrinker.
+Enjoy the day and happy coding!
+
+
+If you find this tool useful, consider give us a star on the github.
+https://github.com/kxxt/WSLDiskShrinker
