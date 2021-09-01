@@ -19,7 +19,7 @@ static class Shrinker
 #if NET5_0_OR_GREATER
 		await File.WriteAllTextAsync(script_path, GetDiskpartScript(file));
 #else
-		await Task.Run(()=>File.WriteAllText(script_path, GetDiskpartScript(file)));
+		await Task.Run(() => File.WriteAllText(script_path, GetDiskpartScript(file)));
 #endif
 		return tmp_file_info;
 	}
@@ -33,9 +33,10 @@ static class Shrinker
 			CreateNoWindow = true,
 			RedirectStandardOutput = true,
 			RedirectStandardError = true,
-			RedirectStandardInput = true
+			RedirectStandardInput = true,
+			WindowStyle = ProcessWindowStyle.Hidden,
 		};
-		var proc = new Process { StartInfo = pinfo };
+		var proc = new Process { StartInfo = pinfo, EnableRaisingEvents = true };
 		proc.Start();
 #if NET5_0_OR_GREATER
 		await proc.WaitForExitAsync();
