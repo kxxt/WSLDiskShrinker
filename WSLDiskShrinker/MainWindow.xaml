@@ -330,21 +330,20 @@
             </materialDesign:Card>
             <materialDesign:Card
                 Grid.Row="2"
-                Grid.Column="1"
-                Background="DeepSkyBlue">
+                Grid.Column="1">
                 <StackPanel>
                     <TextBlock
                         HorizontalAlignment="Center"
-                        FontSize="18"
-                        Foreground="White">
+                        FontSize="18">
                         Info
                     </TextBlock>
-                    <TextBlock Foreground="White">
+                    <TextBlock FontSize="15">
                         Inspired by&#x20;<Hyperlink NavigateUri="https://stephenreescarter.net/how-to-shrink-a-wsl2-virtual-disk/" RequestNavigate="Hyperlink_OnRequestNavigate">
                             https://stephenreescarter.net/how-to-shrink-a-wsl2-virtual-disk/
                         </Hyperlink>
                     </TextBlock>
-                    <TextBlock Foreground="White">
+                    <TextBlock FontSize="15" Margin="0,20,0,0">
+                        
                         Github:&#x20;<Hyperlink NavigateUri="https://github.com/kxxt/WSLDiskShrinker" RequestNavigate="Hyperlink_OnRequestNavigate">
                             https://github.com/kxxt/WSLDiskShrinker
                         </Hyperlink>
