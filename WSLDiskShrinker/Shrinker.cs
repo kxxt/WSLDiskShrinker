@@ -19,7 +19,7 @@ static class Shrinker
 #if NET5_0_OR_GREATER
 		await File.WriteAllTextAsync(script_path, GetDiskpartScript(file));
 #else
-			await Task.Run(()=>File.WriteAllText(script_path, GetDiskpartScript(file)));
+		await Task.Run(()=>File.WriteAllText(script_path, GetDiskpartScript(file)));
 #endif
 		return tmp_file_info;
 	}
@@ -40,7 +40,7 @@ static class Shrinker
 #if NET5_0_OR_GREATER
 		await proc.WaitForExitAsync();
 #else
-			await proc.CustomWaitForExitAsync();
+		await proc.CustomWaitForExitAsync();
 #endif
 
 		if (proc.ExitCode != 0) throw new CommandFailedException(proc);
