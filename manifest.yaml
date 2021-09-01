@@ -2,7 +2,7 @@ PackageIdentifier: BiSS.WSLDiskShrinker
 Publisher: Believers in Science Studio
 PackageName: WSL Disk Shrinker
 PackageLocale: en-US
-PackageVersion: 0.1.1
+PackageVersion: 0.2.0
 License: MIT
 LicenseUrl: https://github.com/kxxt/WSLDiskShrinker/blob/master/LICENSE
 ShortDescription: A simple tool to help reduce WSL disk usage.
@@ -12,7 +12,7 @@ Tags:
 Installers:
   - Architecture: neutral
     InstallerType: inno
-    InstallerUrl: https://github.com/kxxt/WSLDiskShrinker/releases/download/v0.1.1/wsl-disk-shrinker-setup.exe
-    InstallerSha256: 13EC9D0539C3DEC52CA7817EFD1DF224B72CBB4108B48324F79EA4D7822BE6D3
+    InstallerUrl: https://github.com/kxxt/WSLDiskShrinker/releases/download/v0.2.0/wsl-disk-shrinker-setup.exe.exe
+    InstallerSha256: 01BD87D80B72938989E04CD97EBC8DB057D34AE5F9E149E945CC34918A236E55
 ManifestType: singleton
 ManifestVersion: 1.0.0
