@@ -27,7 +27,18 @@ namespace WSLDiskShrinker
 				OnPropertyChanged();
 			}
 		}
-
+		public static PackIconKind GetIconByName(string name)
+		{
+			var lname = name.ToLowerInvariant();
+			return lname switch
+			{
+				var x when x.Contains("ubuntu") => PackIconKind.Ubuntu,
+				var x when x.Contains("mint") => PackIconKind.LinuxMint,
+				var x when x.Contains("debian") => PackIconKind.Debian,
+				var x when x.Contains("docker") => PackIconKind.Docker,
+				_ => PackIconKind.Linux
+			};
+		}
 		public event PropertyChangedEventHandler? PropertyChanged;
 
 		[NotifyPropertyChangedInvocator]
