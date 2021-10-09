@@ -2,7 +2,7 @@ Welcome to install WSL Disk Shrinker.
 This software can help you reduce the disk usage of various WSL distros.
 
 
-Please notice that you need .Net Framework >= 4.7.2 to be installed to run this software.
+Please notice that you need .Net Framework >= 4.7.2 installed to run this software.
 If you are using Windows 10, probably the .Net Framework requirement is already installed.
 
 Github Repo: https://github.com/kxxt/WSLDiskShrinker
