@@ -19,10 +19,11 @@ static class Scanner
 		var distroKeys = from distroID in distroIDs
 						 select lxss.OpenSubKey(distroID);
 		return from distroKey in distroKeys
-			   where Directory.Exists((string)distroKey.GetValue("BasePath"))
+			   let path = Path.Combine(distroKey.GetValue("BasePath") as string ?? string.Empty, "ext4.vhdx")
+			   where File.Exists(path)
 			   select new ExactDistro(
-				  Path.Combine((string)distroKey.GetValue("BasePath"), "ext4.vhdx"),
-				  (string)distroKey.GetValue("DistributionName") ?? "<Unnamed>"
+				   path,
+				   distroKey.GetValue("DistributionName") as string ?? "<Unnamed>"
 			   );
 	}
 
