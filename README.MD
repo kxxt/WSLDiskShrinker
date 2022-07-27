@@ -8,7 +8,7 @@ This small tool can help you reduce the disk usage of WSL distros.
 
 ## Install
 
-This application requires .net 5.0 or .net framework 4.7.2.
+This application requires .net 6.0 or .net framework 4.7.2.
 
 Download the latest version from `Release` page.
 
