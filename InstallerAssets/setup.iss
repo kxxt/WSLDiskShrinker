@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "WSL Disk Shrinker"
-#define MyAppVersion "0.2.1"
+#define MyAppVersion "0.2.2"
 #define MyAppPublisher "Believers in Science Studio"
 #define MyAppURL "https://github.com/kxxt/WSLDiskShrinker"
 #define MyAppExeName "WSLDiskShrinker.exe"
