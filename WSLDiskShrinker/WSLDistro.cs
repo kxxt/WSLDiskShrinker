@@ -30,6 +30,9 @@ public class WSLDistro : INotifyPropertyChanged
             var x when x.Contains("mint") => PackIconKind.LinuxMint,
             var x when x.Contains("debian") => PackIconKind.Debian,
             var x when x.Contains("docker") => PackIconKind.Docker,
+            var x when x.Contains("arch") => PackIconKind.Arch,
+            var x when x.Contains("centos") => PackIconKind.Centos,
+            var x when x.Contains("fedora") => PackIconKind.Fedora,
             _ => PackIconKind.Linux
         };
     }
