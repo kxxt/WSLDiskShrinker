@@ -83,27 +83,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
     private void LoadMockObjects()
     {
-        Distros.Add(new()
-        {
-            Name = "Ubuntu",
-            Path = "???????",
-            Size = 2321412343413,
-            Icon = PackIconKind.Ubuntu
-        });
-        Distros.Add(new()
-        {
-            Name = "Linux",
-            Path = "???????",
-            Size = 2321213,
-            Icon = PackIconKind.Linux
-        });
-        Distros.Add(new()
-        {
-            Name = "ArchLinux",
-            Path = "???????",
-            Size = 232122313,
-            Icon = PackIconKind.Arch
-        });
+        Distros.Add(new("?????", "Ubuntu") { Size = 2321412343 });
+        Distros.Add(new("?????", "Linux") { Size = 232121323212 });
+        Distros.Add(new("?????", "ArchLinux") { Size = 232122313 });
         DistrosToShrink.Add(Distros[0]);
     }
 
@@ -279,13 +261,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         };
         if (dlg.ShowDialog() is true)
         {
-            DistrosToShrink.Add(new WSLDistro
-            {
-                Name = "Custom VHDX",
-                Icon = PackIconKind.File,
-                Path = dlg.FileName,
-                Size = new FileInfo(dlg.FileName).Length
-            });
+            DistrosToShrink.Add(new WSLDistro(dlg.FileName, "Custom VHDX"));
             await dialogHost.ShowDialog(dialogHost.DialogContent ?? "n/a"); // Keep compiler happy...
         }
         EnableButton(btn);

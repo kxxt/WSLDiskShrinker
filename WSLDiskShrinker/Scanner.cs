@@ -35,13 +35,7 @@ static class Scanner
         {
             var distros = GetDistrosByRegistry();
             return from distro in distros
-                   select new WSLDistro
-                   {
-                       Path = distro.Path,
-                       Name = distro.Name,
-                       Icon = WSLDistro.GetIconByName(distro.Name),
-                       Size = new FileInfo(distro.Path).Length
-                   };
+                   select new WSLDistro(distro.Path, distro.Name);
         }
         catch (Exception ex) when (ex is IOException
                                     or UnauthorizedAccessException
