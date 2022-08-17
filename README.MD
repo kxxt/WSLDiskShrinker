@@ -12,6 +12,11 @@ This application requires .net 6.0 or .net framework 4.7.2.
 
 Download the latest version from `Release` page.
 
+You can also install the app using [Chocolatey](https://community.chocolatey.org/packages/wsldiskshrinker):
+```powershell
+choco install wsldiskshrinker
+```
+
 ## Usage
 
 Open the application, you can see all your wsl distros.
